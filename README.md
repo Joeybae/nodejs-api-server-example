@@ -22,7 +22,7 @@
   
         # npm start
   
-2. api 서버 구축
+2. api 서버 - get
 
   - routes/index.js 변경
   
@@ -47,3 +47,31 @@
   - 결과
   
         {"success":true}
+
+3. api 서버 - post
+
+  - post 호출 - routes/index.js
+  
+        //post 호출
+        router.post('/post_test', function(req,res){
+          const user_message = req.body.message;
+          res.status(200).json(
+            {
+              "message" : user_message
+            }
+          );
+        });
+
+  - postman을 통한 message 작성
+  
+        {
+          "message":"HI"
+        }
+
+  - 결과
+  
+        {
+            "message": "HI"
+        }
+  
+  
