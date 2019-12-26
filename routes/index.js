@@ -15,4 +15,23 @@ router.get('/', function(req, res){
   );
 });
 
+//api 호출 message
+router.get('/test', function(req, res){
+  res.status(200).json(
+    {
+      "message" : "test"
+    }
+  );
+});
+
+//post 호출
+router.post('/post_test', function(req,res){
+  const user_message = req.body.message;
+  res.status(200).json(
+    {
+      "message" : user_message
+    }
+  );
+});
+
 module.exports = router;
