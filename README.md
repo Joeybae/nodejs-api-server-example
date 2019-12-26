@@ -74,4 +74,50 @@
             "message": "HI"
         }
   
+4. controller
+
+  - controllers/index.js 생성
   
+        function basicAPI (req, res){
+          res.status(200).json(
+            {
+              "success" : true
+            }
+          );
+        };
+
+        function testAPI (req, res){
+          res.status(200).json(
+            {
+              "message" : "test"
+            }
+          );
+        };
+
+        function postTestAPI (req,res){
+          const user_message = req.body.message;
+          res.status(200).json(
+            {
+              "message" : user_message
+            }
+          );
+        };
+
+        module.exports = {
+          basicAPI: basicAPI,
+          testAPI: testAPI,
+          postTestAPI: postTestAPI,
+        }
+        
+  - body-parser install
+  
+  # npm install body-parser --save
+  
+  - body-parser load - app.js
+  
+        ...
+        var bodyParser = require('body-parser')
+        ...
+        app.use(bodyParser().json())
+        ...
+        
